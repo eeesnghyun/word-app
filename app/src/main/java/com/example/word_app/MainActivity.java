@@ -27,7 +27,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText editText;
+    private final static String DATA_URL = "https://eeesnghyun.github.io/app-test/data.json";
+
     RecyclerView recyclerView;
     WordAdapter wordAdapter;
 
@@ -38,31 +39,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editText = findViewById(R.id.editText);
         recyclerView = findViewById(R.id.recyclerView);
-
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                makeRequest();
-            }
-        });
 
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
         LinearLayoutManager layoutManager =
-                new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+                new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
         wordAdapter = new WordAdapter();
         recyclerView.setAdapter(wordAdapter);
     }
 
-    public void makeRequest() {
-        String url = editText.getText().toString();
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        makeRequest(DATA_URL);
+    }
+
+    public void makeRequest(String dataUrl) {
+        String url = dataUrl;
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
