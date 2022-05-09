@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String DATA_URL = "https://eeesnghyun.github.io/app-test/data.json";
+    private final static String DATA_URL = "https://eeesnghyun.github.io/word-app/data.json";
 
     RecyclerView recyclerView;
     WordAdapter wordAdapter;
