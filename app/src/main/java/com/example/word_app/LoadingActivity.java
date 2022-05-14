@@ -1,8 +1,12 @@
 package com.example.word_app;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 public class LoadingActivity extends Activity {
     @Override
@@ -10,6 +14,9 @@ public class LoadingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
         startLoading();
+
+        ImageView imageView = (ImageView)findViewById(R.id.img_loading);
+        Glide.with(this).load(R.raw.loading).into(imageView);
     }
 
     private void startLoading() {
@@ -19,6 +26,6 @@ public class LoadingActivity extends Activity {
             public void run() {
                 finish();
             }
-        }, 2000);
+        }, 4000);
     }
 }
