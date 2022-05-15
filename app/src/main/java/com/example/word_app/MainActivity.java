@@ -34,7 +34,6 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private final static String DATA_URL   = "https://eeesnghyun.github.io/word-app/data.json";
-    private final static String FLOWER_URL = "https://eeesnghyun.github.io/word-app/flower.json";
 
     WordAdapter wordAdapter;
 
@@ -108,13 +107,18 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             JSONObject jsonObject = new JSONObject(response);
-            JSONArray jsonArray = jsonObject.getJSONArray("dataList");
+            JSONArray dataArray = jsonObject.getJSONArray("dataList");
+            JSONArray flowerArray = jsonObject.getJSONArray("flowerList");
 
             List<WordEntity> list = new ArrayList<WordEntity>();
 
-            for (int i = 0; i < jsonArray.length(); i++) {
-                WordEntity word = gson.fromJson(jsonArray.get(i).toString(), WordEntity.class);
-                list.add(word);
+            for (int i = 0; i < dataArray.length(); i++) {
+                WordEntity wordData   = gson.fromJson(dataArray.get(i).toString(), WordEntity.class);
+                WordEntity flowerData = gson.fromJson(flowerArray.get(i).toString(), WordEntity.class);
+
+                wordData.setImage(flowerData.getImage());
+                wordData.setName(flowerData.getName());
+                list.add(wordData);
             }
 
             Collections.shuffle(list);      //응답받은 데이터를 랜덤으로 배열
@@ -125,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
             wordAdapter.notifyDataSetChanged();
 
-            //println("데이터 카운트 : " + jsonArray.length());
+            //println("글 개수 : " + dataArray.length());
         } catch (Exception e) {
             e.printStackTrace();
         }

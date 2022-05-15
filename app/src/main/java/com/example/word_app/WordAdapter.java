@@ -3,10 +3,13 @@ package com.example.word_app;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -25,6 +28,11 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         WordEntity item = items.get(position);
+
+        Glide.with(viewHolder.itemView.getContext())
+                .load("https://eeesnghyun.github.io/word-app/images/" + item.getImage())
+                .into(viewHolder.imageView);
+
         viewHolder.setItem(item);
     }
 
@@ -48,12 +56,14 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
         TextView textView2;
+        ImageView imageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.textContent);
             textView2 = itemView.findViewById(R.id.textSpeaker);
+            imageView = itemView.findViewById(R.id.imageView);
         }
 
         public void setItem(WordEntity word) {
