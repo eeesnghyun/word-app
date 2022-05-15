@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
     //화면 캡쳐 버튼 클릭
     public void mOnCaptureClick(View v) {
-        View rootView = getWindow().getDecorView();
+        View rootView = findViewById(R.id.layer_main);
         rootView.setDrawingCacheEnabled(true);
 
         Bitmap screenBitmap = rootView.getDrawingCache();   //캐시를 비트맵으로 변환

@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/layer_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
