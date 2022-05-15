@@ -14,14 +14,12 @@
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false">
 
+        <!-- data : image -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginBottom="25dp"
-            app:cardCornerRadius="8dp"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="30dp"
             app:cardElevation="0dp"
             android:layout_gravity="center">
 
@@ -38,8 +36,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/white"
             android:orientation="vertical">
 
+            <!-- data : word -->
             <TextView
                 android:id="@+id/textContent"
                 android:layout_width="match_parent"
@@ -50,6 +52,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
+            <!-- data : speaker -->
             <TextView
                 android:id="@+id/textSpeaker"
                 android:layout_width="match_parent"
