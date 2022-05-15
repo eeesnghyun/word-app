@@ -20,5 +20,27 @@
         {"no" : "18", "content" : "성공의 비결은 단 한 가지, 잘할 수 있는 일에 광적으로 집중하는 것이다.", "speaker" : "톰 모나건"},
         {"no" : "19", "content" : "자신감 있는 표정을 지으면 자신감이 생긴다 ", "speaker" : "찰스다윈"},
         {"no" : "20", "content" : "1퍼센트의 가능성, 그것이 나의 길이다. ", "speaker" : "나폴레옹"}    
+    ],
+    "flowerList" : [
+        {"no" : "1", "image" : "flower1.jpg", "name" : ""},
+        {"no" : "2", "image" : "flower2.jpg", "name" : ""},
+        {"no" : "3", "image" : "flower3.jpg", "name" : ""},
+        {"no" : "4", "image" : "flower4.jpg", "name" : ""},
+        {"no" : "5", "image" : "flower5.jpg", "name" : ""},
+        {"no" : "6", "image" : "flower6.jpg", "name" : ""},
+        {"no" : "7", "image" : "flower7.jpg", "name" : ""},
+        {"no" : "8", "image" : "flower8.jpg", "name" : ""},
+        {"no" : "9", "image" : "flower9.jpg", "name" : ""},
+        {"no" : "10", "image" : "flower10.jpg", "name" : ""},
+        {"no" : "11", "image" : "flower11.jpg", "name" : ""},
+        {"no" : "12", "image" : "flower12.jpg", "name" : ""},
+        {"no" : "13", "image" : "flower13.jpg", "name" : ""},
+        {"no" : "14", "image" : "flower14.jpg", "name" : ""},
+        {"no" : "15", "image" : "flower15.jpg", "name" : ""},
+        {"no" : "16", "image" : "flower16.jpg", "name" : ""},
+        {"no" : "17", "image" : "flower17.jpg", "name" : ""},
+        {"no" : "18", "image" : "flower18.jpg", "name" : ""},
+        {"no" : "19", "image" : "flower19.jpg", "name" : ""},
+        {"no" : "20", "image" : "flower20.jpg", "name" : ""}        
     ]
 }
