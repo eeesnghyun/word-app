@@ -8,13 +8,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -29,11 +33,15 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -142,6 +150,38 @@ public class MainActivity extends AppCompatActivity {
 
     public void println(String data) {
         Log.d("MainActivity", data);
+    }
+
+    //화면 캡쳐 버튼 클릭
+    public void mOnCaptureClick(View v) {
+        View rootView = getWindow().getDecorView();
+        rootView.setDrawingCacheEnabled(true);
+
+        Bitmap screenBitmap = rootView.getDrawingCache();   //캐시를 비트맵으로 변환
+
+        Random random = new Random();
+        String filename = "flower_" + String.valueOf(random.nextInt(99999)) +".jpg";
+
+        File file = new File(Environment.getExternalStorageDirectory() + "/Pictures", filename);
+        FileOutputStream os = null;
+
+        try {
+            os = new FileOutputStream(file);
+            screenBitmap.compress(Bitmap.CompressFormat.PNG, 90, os);   //비트맵을 PNG파일로 변환
+            os.close();
+
+            rootView.setDrawingCacheEnabled(false);
+            File screenShot = file;
+
+            if (screenShot != null) {
+                sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(screenShot)));
+            }
+
+            Toast.makeText(MainActivity.this, "사진이 저장되었습니다.", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(MainActivity.this, "사진이 저장에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

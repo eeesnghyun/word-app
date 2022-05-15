@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />  <!-- 서버 접근을 위한 옵션 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> <!-- 화면 캡처 옵션 -->
 
     <application
         android:allowBackup="true"

@@ -44,7 +44,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/capture" />
+                android:src="@drawable/capture"
+                android:onClick="mOnCaptureClick"/>
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
