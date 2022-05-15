@@ -23,7 +23,10 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -91,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 return params;
             }
         };
-        
+
         request.setShouldCache(false);
         requestQueue.add(request);
 
@@ -105,15 +108,22 @@ public class MainActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(response);
             JSONArray jsonArray = jsonObject.getJSONArray("dataList");
 
+            List<WordEntity> list = new ArrayList<WordEntity>();
+
             for (int i = 0; i < jsonArray.length(); i++) {
                 WordEntity word = gson.fromJson(jsonArray.get(i).toString(), WordEntity.class);
+                list.add(word);
+            }
 
+            Collections.shuffle(list);      //응답받은 데이터를 랜덤으로 배열
+
+            for (WordEntity word : list) {
                 wordAdapter.addItem(word);
             }
 
-            println("데이터 카운트 : " + jsonArray.length());
-
             wordAdapter.notifyDataSetChanged();
+
+            //println("데이터 카운트 : " + jsonArray.length());
         } catch (Exception e) {
             e.printStackTrace();
         }
