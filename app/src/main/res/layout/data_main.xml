@@ -23,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:fontFamily="@font/mapo"
                 android:text="내용"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -34,6 +35,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:gravity="right"
+                android:fontFamily="@font/mapo"
                 android:text="사람" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

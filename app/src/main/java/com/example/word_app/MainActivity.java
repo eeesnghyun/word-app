@@ -29,6 +29,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private final static String DATA_URL = "https://eeesnghyun.github.io/word-app/data.json";
+    private final static String FLOWER_URL = "https://eeesnghyun.github.io/word-app/flower.json";
 
     RecyclerView recyclerView;
     WordAdapter wordAdapter;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         makeRequest(DATA_URL);
     }
 
+    //서버로 데이터 요청
     public void makeRequest(String dataUrl) {
         String url = dataUrl;
 
@@ -89,8 +91,10 @@ public class MainActivity extends AppCompatActivity {
                 return params;
             }
         };
+        
         request.setShouldCache(false);
         requestQueue.add(request);
+
         println("요청 보냄");
     }
 
