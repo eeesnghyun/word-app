@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@android:color/transparent"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="@android:color/white"
+        app:cardBackgroundColor="@android:color/transparent"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false">
 
