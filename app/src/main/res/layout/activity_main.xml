@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -13,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
-        android:background="@android:color/transparent"
+        android:background="#ebedfa"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -30,21 +29,24 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
+        android:background="#ebedfa"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="58dp"
-            android:layout_height="58dp"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="#d7dcf4"
             app:cardCornerRadius="30dp">
 
             <ImageButton
                 android:id="@+id/imageButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
                 android:src="@drawable/capture"
                 android:onClick="mOnCaptureClick"/>
         </androidx.cardview.widget.CardView>

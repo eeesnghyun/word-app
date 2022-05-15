@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@android:color/transparent"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        app:cardBackgroundColor="@android:color/transparent"
+        app:cardBackgroundColor="#ebedfa"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false">
 
@@ -19,7 +18,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             app:cardCornerRadius="30dp"
             app:cardElevation="0dp"
             android:layout_gravity="center">
@@ -39,7 +39,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@color/white"
+            android:background="#ebedfa"
             android:orientation="vertical">
 
             <!-- data : word -->
