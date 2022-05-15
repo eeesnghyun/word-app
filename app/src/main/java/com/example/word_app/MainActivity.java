@@ -1,10 +1,12 @@
 package com.example.word_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,10 +33,9 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static String DATA_URL = "https://eeesnghyun.github.io/word-app/data.json";
+    private final static String DATA_URL   = "https://eeesnghyun.github.io/word-app/data.json";
     private final static String FLOWER_URL = "https://eeesnghyun.github.io/word-app/flower.json";
 
-    RecyclerView recyclerView;
     WordAdapter wordAdapter;
 
     static RequestQueue requestQueue;
@@ -43,21 +44,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Loading
+
+        //로딩창 호출
         Intent intent = new Intent(this, LoadingActivity.class);
         startActivity(intent);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        wordAdapter = new WordAdapter();
 
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
 
+        //가로형 리싸이클러뷰 생성
         LinearLayoutManager layoutManager =
                 new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-
-        wordAdapter = new WordAdapter();
         recyclerView.setAdapter(wordAdapter);
     }
 
